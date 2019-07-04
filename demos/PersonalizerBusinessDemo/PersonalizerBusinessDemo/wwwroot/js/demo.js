@@ -7,7 +7,7 @@
 
     setupActionControls();
     setupContextControls();
-    
+
     goBtnEle.addEventListener("click", function () {
         if (!waiting) {
             if (intervalId >= 0) {
@@ -61,8 +61,8 @@
 
 let context = {
     weekDay: "workweek",
-    timeOfDay: "am",
-    weather: "sunny",
+    profile: "anonymous",
+    tournament: "tournament1",
     userAgent: null,
     useTextAnalytics: false
 };
@@ -107,13 +107,13 @@ function setupContextControls() {
         updateContext(event.target.value);
     });
 
-    const timeOfDaySelectEle = document.getElementById('timeOfDay');
-    timeOfDaySelectEle.addEventListener('change', (event) => {
+    const profileSelectEle = document.getElementById('profile');
+    profileSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value);
     });
 
-    const weatherSelectEle = document.getElementById('weather');
-    weatherSelectEle.addEventListener('change', (event) => {
+    const tournamentSelectEle = document.getElementById('tournament');
+    tournamentSelectEle.addEventListener('change', (event) => {
         updateContext(null, null, event.target.value);
     });
 
@@ -129,27 +129,27 @@ function setupContextControls() {
 
     getUserAgent().then(userAgentResponse => {
         userAgent = userAgentResponse;
-        updateContext(weekDaySelectEle.value, timeOfDaySelectEle.value, weatherSelectEle.value, !UseUserAgentEle.checked, userAgent);
+        updateContext(weekDaySelectEle.value, profileSelectEle.value, tournamentSelectEle.value, !UseUserAgentEle.checked, userAgent);
     });
 
-    updateContext(weekDaySelectEle.value, timeOfDaySelectEle.value, weatherSelectEle.value);
+    updateContext(weekDaySelectEle.value, profileSelectEle.value, tournamentSelectEle.value);
 }
 
-function updateContext(weekDay, timeOfDay, weather, removeUserAgent, userAgent) {
+function updateContext(weekDay, profile, tournament, removeUserAgent, userAgent) {
     context.weekDay = weekDay || context.weekDay;
-    context.timeOfDay = timeOfDay || context.timeOfDay;
-    context.weather = weather || context.weather;
+    context.profile = profile || context.profile;
+    context.tournament = tournament || context.tournament;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
             weekDay: context.weekDay,
-            timeOfDay: context.timeOfDay
+            profile: context.profile
         },
-        { weather: context.weather }
+        { tournament: context.tournament }
     ];
 
-    
+
     if (context.userAgent) {
         contextFeatures.push({ userAgent: context.userAgent });
     }
@@ -222,7 +222,7 @@ function updateActionsTab(actions) {
 
     let actionsTabHeadersString = "";
     let actionsTabContentString = "";
-    
+
     for (var i = 0; i < actions.length; i++) {
         let actionTabContent = createActionTab(actions[i], i === 0);
         actionsTabHeadersString += actionTabContent.tabHeader;
@@ -263,8 +263,8 @@ function getActions(useTextAnalytics) {
 function getRecommendation() {
     const requestContext = {
         weekDay: context.weekDay,
-        timeOfDay: context.timeOfDay,
-        weather: context.weather,
+        profile: context.profile,
+        tournament: context.tournament,
         useTextAnalytics: context.useTextAnalytics,
         useUserAgent: !!context.userAgent
     };
