@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const timeleftEle = document.getElementById("timeleft");
     const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             intervalId = setInterval(function () {
                 counter--;
-                timeleftContainer.innerHTML = `<p class="col-12 px-4" style="font-size: 1.4rem;">
+                timeleftContainer.innerHTML = `<p class="col-12 px-4 py-2 m-0" style="font-size: 1.4rem;">
                         <i class="fas fa-hourglass-half"></i> ${counter}s left to get reward
                     </p>`;
                 if (counter <= 0) {
@@ -96,12 +95,12 @@ document.addEventListener("DOMContentLoaded", function () {
                             showRewardMessage(reward);
                         });
                     }
-                    timeleftEle.setAttribute("value", 0);
+                    timeleftContainer.innerHTML = '';
                     updateRewardValue(0, articleDoc);
                     clearRewardmessage();
                     counter = 0;
                 }
-                articleViewer.contentWindow.history.back();
+                articleViewer.contentWindow.history.go(1 - articleViewer.contentWindow.history.length);
             });
         }
     });
@@ -262,7 +261,16 @@ function updateCodeElementWithJSON(eleId, jsonObj, resultId) {
     let code = JSON.stringify(jsonObj, null, 2);
 
     if (resultId) {
-        const regex = new RegExp(`(.*)("rewardActionId":\\s"${resultId}"\\n)(.*)`, 'gm');
+        let aux = JSON.parse(code);
+        aux = {
+            result: {
+                eventId: aux.result.eventId,
+                rewardActionId: aux.result.rewardActionId,
+                ranking: aux.result.ranking
+            }
+        }
+        code = JSON.stringify(aux, null, 2);
+        const regex = new RegExp(`(.*)("rewardActionId":\\s"${resultId}")(.*)`, 'gm');
         code = code.replace(regex, '$1<mark>$2</mark>$3');
     }
 

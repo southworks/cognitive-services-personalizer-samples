@@ -23,9 +23,9 @@
                 <div class="main_slot_image container-img-text card " style="height: 100%; color: black;">
                     <div class="row my-auto">
                         <div class="col-8 mx-auto">
-                            <div class="row">
-                                <p class="text-center">
-                                    Personalizer will recommend the content to show here,
+                            <div class="row text-center justify-content-center">
+                                <p>
+                                    Personalizer will recommend the content to show here,<br />
                                     based on real-time context.
                                 </p>
                             </div>
@@ -35,7 +35,7 @@
                                 </button>
                             </div>
                             <div class="row justify-content-center mt-3">
-                                <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleBackstageLabel</a>
+                                <a id="backstage-btn-iframe" href="#">@siteConfig.MainArticleShowBackstageLabel</a>
                             </div>
                         </div>
                     </div>
@@ -110,14 +110,22 @@
 </div>
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const goBtnIframe = document.getElementById('go-btn-iframe');
+        if (goBtnIframe) {
+            goBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("go-btn").click()
+            })
+        }
 
-    document.getElementById('go-btn-iframe').addEventListener("click", function () {
-        parent.document.getElementById("go-btn").click()
-    })
+        const backstageBtnIframe = document.getElementById('backstage-btn-iframe');
+        if (backstageBtnIframe) {
+            backstageBtnIframe.addEventListener("click", function () {
+                parent.document.getElementById("backstage-btn").click();
 
-    document.getElementById('backstage-btn-iframe').addEventListener("click", function () {
-        parent.document.getElementById("backstage-btn").click()
-    })
-
+                backstageBtnIframe.innerHTML = backstageBtnIframe.innerHTML === `@siteConfig.MainArticleCloseBackstageLabel` ? `@siteConfig.MainArticleShowBackstageLabel` : `@siteConfig.MainArticleCloseBackstageLabel`;
+            })
+        }
+    });
 
 </script>

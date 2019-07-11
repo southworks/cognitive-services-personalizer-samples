@@ -111,7 +111,7 @@ img {
     position: fixed;
     bottom: 20px;
     right: 30px;
-    z-index: 99;
+    z-index: 1000;
     font-size: 18px;
     border: none;
     outline: none;
@@ -122,9 +122,9 @@ img {
     border-radius: 4px;
 }
 
-#iframe-backBtn:hover {
-    background-color: #555;
-}
+    #iframe-backBtn:hover {
+        background-color: #555;
+    }
 
 .progress {
     font-size: 2rem;
@@ -163,11 +163,11 @@ img {
 .gauge-container {
     display: block;
     position: fixed;
-    top: 70px;
-    right: -120px;
+    top: 9vw;
+    right: -21.8vw;
     z-index: 99;
-    width: 210px;
-    height: 210px;
+    width: 28vw;
+    height: 28vw;
     overflow: hidden;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -180,8 +180,8 @@ img {
     background-color: #007bff;
     width: 42%;
     height: 42%;
-    left: 30%;
-    top: 20%;
+    left: 29%;
+    top: 19%;
     border-radius: 300px 300px 300px 300px;
 }
 
@@ -247,9 +247,9 @@ img {
     z-index: 10;
     color: rgba(0, 0, 0, 0.8);
     font-family: calibri;
-    font-size: 0.8rem;
-    line-height: 1rem;
-    padding-top: 0.2rem;
+    font-size: 1.8vw;
+    line-height: 2vw;
+    padding-top: 0.1vw;
     position: absolute;
     width: 40%;
     height: 20%;
@@ -263,7 +263,7 @@ img {
     z-index: 10;
     color: rgba(30, 30, 30, 1);
     font-family: calibri;
-    font-size: 1.5em;
+    font-size: 3vw;
     line-height: normal;
     position: absolute;
     width: 20%;
@@ -281,6 +281,8 @@ img {
     text-transform: uppercase;
     font-family: "Open Sans";
     font-size: 100%;
+    cursor: default !important;
+    pointer-events: none !important;
 }
 
 .row .py-2 > table {
@@ -317,3 +319,10 @@ img {
     font-weight: 800;
     line-height: 3vw;
 }
+
+
+.dropdownHover > a, b{
+    cursor: default;
+    pointer-events: none;
+}
+
