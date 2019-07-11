@@ -292,6 +292,10 @@ img {
     line-height: 10px;
 }
 
+.tournament-table{
+    font-size: 1vw;
+}
+
 .tournament-name {
     font-size: 9px;
     font-weight: 700;
