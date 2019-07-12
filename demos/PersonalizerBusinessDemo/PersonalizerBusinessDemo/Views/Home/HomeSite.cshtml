@@ -7,13 +7,13 @@
 }
 
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-lg-9">
         @{
             if (Model.Any())
             {
                 <a href="/home/article/@Model.First().Id">
                     <div class="main_slot_image container-img-text">
-                        <img src="~/img/@Model.First().ImageName" alt="News 1" />
+                        <img src="~/img/@Model.First().ImageName" class="heroImage" style="object-fit:contain;height:100%" alt="News 1" />
                         <div class="bottom-left"><h2 class="hero-text">@Model.First().Title</h2></div>
                     </div>
                 </a>
@@ -71,7 +71,7 @@
             }
         }
     </div>
-    <div class="col-md-3 small_slot_wrapper">
+    <div class="col-lg-3 small_slot_wrapper">
             <h5 class="font-weight-light">Latest Scores</h5>
 
             <table class="table table-sm bg-light">

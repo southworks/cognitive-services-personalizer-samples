@@ -77,7 +77,6 @@ img {
 }
 
 .small_slot_wrapper {
-    min-height: 350px;
     position: relative;
 }
 
@@ -314,6 +313,10 @@ img {
     font-style: italic;
     font-weight: 800;
     line-height: 36px;
+}
+
+.heroImage > container, img {
+   max-width: 75vw;
 }
 
 .dropdownHover > a, b{
