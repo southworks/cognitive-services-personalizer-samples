@@ -363,3 +363,12 @@ img {
     border-spacing: 1Vw;
 }
 
+.article-content {
+    position: relative;
+    min-height: 80vh;
+}
+
+.main {
+    padding-bottom: 55vh;
+}
+
