@@ -7,7 +7,7 @@ footer {
     position: absolute;
     bottom: 0;
     max-height: 100vh;
-    min-height: 55vh; /* Footer height */
+    min-height: 60vh; /* Footer height */
     width: 100%;
     background-color: #263238;
 }
