@@ -78,6 +78,19 @@ img {
 
 .small_slot_wrapper {
     position: relative;
+    font-size: 0.8rem;
+}
+
+    .small_slot_wrapper table td {
+        padding: 0.3rem 0rem;
+    }
+        .small_slot_wrapper table td.player-name {
+            padding: 0.3rem;
+        }
+
+.player-name {
+    font-style: italic;
+    max-width: 80px;
 }
 
 .small_slot_cols_item {
@@ -300,11 +313,6 @@ img {
     line-height: 14px;
 }
 
-.player-name {
-    font-style: italic;
-    max-width: 80px;
-}
-
 .hero-text {
     text-shadow: 0px 0px 10px #000;
     font-size: 34px;
@@ -330,11 +338,23 @@ img {
     object-fit:cover;
 }
 
-.responseRequestContainers > .pre-scrollable, pre{
-    max-height: 40vh !important;
+.responseRequestContainers > .pre-scrollable, pre {
+    max-height: 30vh !important;
     min-height: 10vh;
-    height: 20vh;
+    height: 10vh;
     overflow-y: scroll;
+}
+.contextjson {
+    height: 16vh;
+    min-height: 13rem;
+}
+
+.responsejson {
+    min-height: 8rem;
+}
+
+.actionsjson {
+    min-height: 9rem;
 }
 
 .exploring-content {
