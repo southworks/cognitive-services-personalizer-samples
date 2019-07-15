@@ -14,7 +14,7 @@
   "StartWithBlankPage": "false",
   "NavigationBar": {
     "LogoImageURL": "img/logo.png",
-    "BackgroundColor": "#F57636",
+    "BackgroundColor": "#361A5B",
     "BackstageLabelBtn": "Show how it works",
     "OptionsList": [
       {
