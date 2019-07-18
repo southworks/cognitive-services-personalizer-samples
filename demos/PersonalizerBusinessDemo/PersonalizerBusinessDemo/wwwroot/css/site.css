@@ -398,7 +398,7 @@ h1 {
 
 .chart-people {
     max-height: 20rem;
-    min-height: 10rem;
+    min-height: 15rem;
     min-width: 15vw;
     max-width: 65vw;
     margin-right: 1.5rem;
@@ -406,7 +406,7 @@ h1 {
 
 .chart-learn {
     max-height: 20rem;
-    min-height: 10rem;
+    min-height: 15rem;
     max-width: 70vw;
     padding-bottom: 1rem;
 }
@@ -418,12 +418,12 @@ h1 {
     }
 }
 
-    @media (min-width: 992px) and (max-width : 1200px) {
-        .chart-learn {
-            height: 25rem;
+@media (min-width: 992px) and (max-width : 1200px) {
+    .chart-learn {
+            height: 30rem;
         }
 
-        .chart-people {
-            height: 25rem;
+    .chart-people {
+            height: 30rem;
         }
     }
