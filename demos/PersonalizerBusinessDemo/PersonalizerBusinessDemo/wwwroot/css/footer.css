@@ -119,9 +119,3 @@ footer p {
             text-align: center;
         }
 
-@media (min-width: 480px) {
-    .small-footer {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-}

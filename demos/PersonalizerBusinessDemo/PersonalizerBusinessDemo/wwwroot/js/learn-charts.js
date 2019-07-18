@@ -149,7 +149,7 @@
         if (intervalId >= 0) {
             clearInterval(intervalId);
         }
-
+        
         avgLearnChart.data.datasets[0].data = [];
         avgLearnChart.update();
 
@@ -159,7 +159,7 @@
                 clearInterval(intervalId);
                 return;
             }
-
+            
             updateData(avgLearnChart, peopleChart, data[currentTick], currentTick);
             currentTick++;
 

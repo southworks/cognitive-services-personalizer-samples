@@ -248,22 +248,22 @@
 
 <footer class="border-top footer learn-container">
     <div class="container-fluid">
-        <div class="row h-100 align-items-center pt-5 pb-3 small-footer">
+        <div class="row h-auto align-items-center pt-5 pb-3 small-footer">
             <div class="col-md-6 col-sm-12 d-block d-inline-flex align-items-center justify-content-center">
-                <div class="col-md-4 col-sm-2 d-flex align-items-center justify-content-center">
-                    <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl px-0 py-0" ><i class="fas fa-play"></i></button>
+                <div class="col-md-3 col-sm-2 d-flex h-auto align-items-center justify-content-center">
+                    <button type="button" id="start-learn-btn" class="btn btn-primary btn-circle btn-xl px-0 py-0 chartplaybutton" ><i class="fas fa-play"></i></button>
                 </div>
-                <div class="col-md-8 col-sm-10 col-sm-8 h-100 ">
-                    <canvas id="avg-learn-chart"></canvas>
+                <div class="col-md-9 col-sm-10 col-sm-8 h-auto d-flex align-items-center justify-content-center">
+                    <canvas id="avg-learn-chart" class="chart-learn"></canvas>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 d-block d-flex align-items-center justify-content-center">
-                <div class="col-md-4 col-sm-4 h-50 px-0 mx-0 d-flex  ">
-                    <div id="current-avg-number" class="display-1" style="font-size:5rem; border-radius:2rem;">0.8</div>
+                <div class="col-md-3 col-sm-3 h-auto px-0 mx-0 d-flex align-items-center justify-content-center ">
+                    <div id="current-avg-number" class="display-1 chart-number">0.8</div>
                 </div>
 
-                <div class="col-md-8 col-sm-8 d-flex h-100 pl-1 ">
-                    <canvas id="people-learn-chart" width="400" height="200"></canvas>
+                <div class="col-md-9 col-sm-9 d-flex h-auto pl-1 d-flex align-items-center justify-content-center">
+                    <canvas id="people-learn-chart" class="chart-people"></canvas>
                 </div>
             </div>
         </div>
