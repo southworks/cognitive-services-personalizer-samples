@@ -8,8 +8,6 @@ namespace PersonalizerBusinessDemo.Models
 
         public bool UseTextAnalytics { get; set; }
 
-        public string Tournament { get; set; }
-
         public string Device { get; set; }
     }
 }
