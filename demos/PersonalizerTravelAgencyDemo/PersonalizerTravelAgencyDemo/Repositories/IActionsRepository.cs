@@ -6,8 +6,8 @@ namespace PersonalizerBusinessDemo.Repositories
 {
     public interface IActionsRepository
     {
-        IList<RankableAction> GetActions(bool useTextAnalytics);
+        IList<RankableAction> GetActions();
 
-        IList<RankableActionWithMetadata> GetActionsWithMetadata(bool useTextAnalytics);
+        IList<RankableActionWithMetadata> GetActionsWithMetadata();
     }
 }

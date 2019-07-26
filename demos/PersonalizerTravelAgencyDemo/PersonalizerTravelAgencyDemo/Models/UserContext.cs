@@ -2,7 +2,7 @@ namespace PersonalizerBusinessDemo.Models
 {
     public class UserContext
     {
-        public bool UseTextAnalytics { get; set; }
+        public bool UseUserAgent { get; set; }
 
         public string PackageAdditionals { get; set; }
 
