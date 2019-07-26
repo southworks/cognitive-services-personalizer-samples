@@ -221,7 +221,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 let context = {
-    referrer: "social",
     device: "mobile",
     packageAdditionals: getRandomOption(additonalsOptions),
     costs: getRandomOption(costsOptions),
@@ -256,12 +255,6 @@ function setupActionControls() {
 }
 
 function setupContextControls() {
-    const referrerSelectEle = document.getElementById('referrer');
-    referrerSelectEle.selectedIndex = ramdomizeSelectedOption(referrerSelectEle);
-    referrerSelectEle.addEventListener('change', (event) => {
-        updateContext(event.target.value);
-    });
-
     const deviceSelectEle = document.getElementById('device');
     deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
     deviceSelectEle.addEventListener('change', (event) => {
@@ -280,23 +273,19 @@ function setupContextControls() {
 
     getUserAgent().then(userAgentResponse => {
         userAgent = userAgentResponse;
-        updateContext(referrerSelectEle.value, deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
+        updateContext(deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
     });
 
-    updateContext(referrerSelectEle.value, deviceSelectEle.value);
+    updateContext(deviceSelectEle.value);
 }
 
-function updateContext(referrer, device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
-    context.referrer = referrer || context.referrer;
+function updateContext( device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
     context.device = device || context.device;
     context.costs = currentCost || context.costs;
     context.packageAdditionals = currentAdditionals || context.packageAdditionals;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
-        {
-            referrer: context.referrer
-        },
         {
             device: context.device,
             costs: context.costs,
@@ -440,7 +429,6 @@ function getActions() {
 
 function getRecommendation() {
     const requestContext = {
-        referrer: context.referrer,
         device: context.device,
         costs: context.costs,
         additionals: context.packageAdditionals,
