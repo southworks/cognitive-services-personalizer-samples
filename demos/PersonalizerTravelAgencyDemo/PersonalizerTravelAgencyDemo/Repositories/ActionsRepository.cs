@@ -11,11 +11,11 @@ namespace PersonalizerTravelAgencyDemo.Repositories
         private IList<RankableActionWithMetadata> _actions = new List<RankableActionWithMetadata>();
         private IList<RankableActionWithMetadata> _actionsWithTextAnalytics = new List<RankableActionWithMetadata>();
 
-        public ActionsRepository(IArticleRepository articleRepository)
+        public ActionsRepository(IActionRepository actionRepository)
         {
-            var articles = articleRepository.GetArticles();
+            var actions = actionRepository.GetActions();
 
-            CreateRankableActions(articles);
+            CreateRankableActions(actions);
         }
 
         public IList<RankableAction> GetActions(bool useTextAnalytics)
@@ -28,22 +28,22 @@ namespace PersonalizerTravelAgencyDemo.Repositories
             return useTextAnalytics ? _actionsWithTextAnalytics : _actions;
         }
 
-        private void CreateRankableActions(IEnumerable<Article> articles)
+        private void CreateRankableActions(IEnumerable<Action> actions)
         {
-            foreach (var article in articles)
+            foreach (var action in actions)
             {
-                CreateRankableAction(article).Wait();
+                CreateRankableAction(action).Wait();
             }
 
             _actions = _actions.OrderBy(a => a.Id).ToList();
             _actionsWithTextAnalytics = _actionsWithTextAnalytics.OrderBy(a => a.Id).ToList();
         }
 
-        private async Task CreateRankableAction(Article article)
+        private async Task CreateRankableAction(Action action)
         {
-            this._actions.Add(new RankableActionWithMetadata(article));
+            this._actions.Add(new RankableActionWithMetadata(action));
 
-            var rankableAction = new RankableActionWithMetadata(article);
+            var rankableAction = new RankableActionWithMetadata(action);
 
             this._actionsWithTextAnalytics.Add(rankableAction);
         }
