@@ -14,12 +14,12 @@ namespace PersonalizerTravelAgencyDemo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IArticleRepository _articleRepository;
+        private readonly IActionRepository _actionRepository;
         private readonly IPersonalizerService _personalizerService;
 
-        public HomeController(IArticleRepository articleRepository, IPersonalizerService personalizerService)
+        public HomeController(IActionRepository actionRepository, IPersonalizerService personalizerService)
         {
-            _articleRepository = articleRepository;
+            _actionRepository = actionRepository;
             _personalizerService = personalizerService;
         }
 
@@ -45,35 +45,34 @@ namespace PersonalizerTravelAgencyDemo.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Article(string id)
+        public IActionResult Action(string id)
         {
             ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
-            var model = _articleRepository.GetArticle(id);
-            ViewData["Title"] = model.Title;
+            var model = _actionRepository.GetAction(id);
             return View(model);
         }
-        public IActionResult HomeSite(string articleIds)
+        public IActionResult HomeSite(string actionsIds)
         {
             ViewData["siteConfig"] = JsonConvert.DeserializeObject<PageConfigModel>(LoadJson("config/general.json"));
 
 
-            if (String.IsNullOrWhiteSpace(articleIds))
+            if (String.IsNullOrWhiteSpace(actionsIds))
             {
-                return View("HomeSite", new List<Article>());
+                return View("HomeSite", new List<Models.Action>());
             }
 
-            var articles = _articleRepository.GetArticles();
+            var actions = _actionRepository.GetActions();
 
-            List<string> topArticlesIds = articleIds.Split(",").ToList();
+            List<string> topActionsIds = actionsIds.Split(",").ToList();
 
-            var topArticles = articles.Where(article => topArticlesIds.Contains(article.Id))
-                                        .OrderBy(article => topArticlesIds.IndexOf(article.Id))
+            var topActions = actions.Where(article => topActionsIds.Contains(article.Id))
+                                        .OrderBy(article => topActionsIds.IndexOf(article.Id))
                                         //Max articles that fit in layout
                                         .Take(4)
                                         .ToList();
 
-            return View("HomeSite", topArticles);
+            return View("HomeSite", topActions);
         }
     }
 }
