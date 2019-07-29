@@ -57,7 +57,6 @@
 </div>
 
 <!-- Title modal -->
-
 <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="about-modal-title" aria-hidden="true">
     <div class="modal-dialog about-modal modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -91,7 +90,6 @@
 </div>
 
 <!-- End Title modal -->
-
 <div class="row dropdownHover">
     <div class="col p-0" id="webpage-container">
 
@@ -132,20 +130,17 @@
                     <div class="col-12">
                         <form class="form-inline py-3">
                             <div class="mr-2">
-                                <label for="referrer">Referrer</label>
-                                <select class="custom-select my-1" id="referrer">
-                                    <option value="social" selected>Social</option>
-                                    <option value="direct">Direct</option>
-                                    <option value="email">Email</option>
-                                    <option value="search">Search</option>
+                                <label for="costs">Costs</label>
+                                <select class="custom-select my-1" id="costs">
+                                    <option value="boatTrip" selected>Boat Trip</option>
+                                    <option value="dinnerAndBreakfast">Dinner & Breakfast</option>
                                 </select>
                             </div>
                             <div class="mr-2">
-                                <label for="currentTournament">Ongoing Tournament</label>
-                                <select class="custom-select my-1" id="currentTournament">
-                                    <option value="wimbledon" selected>Wimbledon</option>
-                                    <option value="mutuaMadridOpen">Mutua Madrid Open</option>
-                                    <option value="australiaOpen">Australia Open</option>
+                                <label for="packageAdditionals">Package Additionals</label>
+                                <select class="custom-select my-1" id="packageAdditionals">
+                                    <option value="allInclusive" selected>All Inclusive</option>
+                                    <option value="luxuryPackage">Luxury Package</option>
                                 </select>
                             </div>
                             <div class="mr-2">
@@ -199,7 +194,6 @@
                                                         <div class="card">
                                                             <div class="card-header p-2">
                                                                 <strong>Action list</strong>
-                                                                <p class="mb-0"><small>Articles to choose from</small></p>
                                                             </div>
                                                             <div class="card-body p-0">
                                                                 <div class="nav flex-column nav-pills" id="actions-tab" role="tablist" aria-orientation="vertical">
@@ -211,13 +205,34 @@
                                                         <div class="card">
                                                             <div class="card-header p-2">
                                                                 <strong>Action JSON</strong>
-                                                                <div class="custom-control custom-checkbox">
-                                                                    <input type="checkbox" class="custom-control-input" id="text-analytics">
-                                                                    <label class="custom-control-label custom-control-description" for="text-analytics"><small>Add features extracted with Text Analytics</small></label>
-                                                                </div>
                                                             </div>
                                                             <div class="card-body p-0">
                                                                 <div class="tab-content" id="actions-tabContent">
+                                                                    <div container>
+                                                                        <div class="row">
+                                                                            <div class="col-3 ">
+                                                                                <p>Image</p>
+                                                                                    <div class="row my-1 pl-1 pt-3 mt-5"><div class="col-12"><img src="~/img/beach.jpg" alt="Beach" /></div></div>
+                                                                                    <div class="row my-1 pl-1"><div class="col-12"><img src="~/img/pool.jpg" alt="Pool" /></div></div>
+                                                                                </div>
+                                                                            <div class="col-3">
+                                                                                <p>Layout</p>
+                                                                                <div class="row my-1"><div class="col-12"><img src="~/img/layout-a.jpg" alt="Layout A"/></div></div>
+                                                                                <div class="row my-1"><div class="col-12"><img src="~/img/layout-b.jpg" alt="Layout B"/></div></div>
+                                                                                <div class="row my-1"><div class="col-12"><img src="~/img/layout-c.jpg" alt="Layout C"/></div></div>
+                                                                            </div>
+                                                                            <div class="col-3">
+                                                                                <p>Tone & Font</p>
+                                                                                    <div class="row mt-5"><div class="col-12"><p class="border border-dark text-center pr-2 px-1">Casual</p></div></div>
+                                                                                    <div class="row"><div class="col-12"><p class="border border-dark text-center pr-1 px-1">Formal</p></div></div>
+                                                                            </div>
+                                                                            <div class="col-3">
+                                                                                <p>Buy Button</p>
+                                                                                    <div class="row my-1 pr-1 mt-5"><div class="col-12"><img src="~/img/buybutton-blue.jpg" alt="Blue" /> </div></div>
+                                                                                    <div class="row my-1 pr-1"><div class="col-12"><img src="~/img/buybutton-orange.jpg" alt="Orange" /></div></div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>

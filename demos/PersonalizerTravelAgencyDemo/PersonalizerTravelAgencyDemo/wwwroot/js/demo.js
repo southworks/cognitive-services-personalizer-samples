@@ -261,15 +261,15 @@ function setupActionControls() {
 }
 
 function setupContextControls() {
-    const referrerSelectEle = document.getElementById('referrer');
-    referrerSelectEle.selectedIndex = ramdomizeSelectedOption(referrerSelectEle);
-    referrerSelectEle.addEventListener('change', (event) => {
+    const costsSelectEle = document.getElementById('costs');
+    costsSelectEle.selectedIndex = ramdomizeSelectedOption(costsSelectEle);
+    costsSelectEle.addEventListener('change', (event) => {
         updateContext(event.target.value);
     });
 
-    const currentTournamentSelectEle = document.getElementById('currentTournament');
-    currentTournamentSelectEle.selectedIndex = ramdomizeSelectedOption(currentTournamentSelectEle);
-    currentTournamentSelectEle.addEventListener('change', (event) => {
+    const packageAdditionalsSelectEle = document.getElementById('packageAdditionals');
+    packageAdditionalsSelectEle.selectedIndex = ramdomizeSelectedOption(packageAdditionalsSelectEle);
+    packageAdditionalsSelectEle.addEventListener('change', (event) => {
         updateContext(null, event.target.value);
     });
 
