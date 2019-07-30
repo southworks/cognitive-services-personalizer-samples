@@ -2,7 +2,7 @@
   {
     "Id": 1,
     "Image": "A",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -10,7 +10,7 @@
   {
     "Id": 2,
     "Image": "A",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -18,7 +18,7 @@
   {
     "Id": 3,
     "Image": "A",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -26,7 +26,7 @@
   {
     "Id": 4,
     "Image": "A",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
@@ -34,7 +34,7 @@
   {
     "Id": 5,
     "Image": "A",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -42,7 +42,7 @@
   {
     "Id": 6,
     "Image": "A",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -50,7 +50,7 @@
   {
     "Id": 7,
     "Image": "A",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -58,7 +58,7 @@
   {
     "Id": 8,
     "Image": "A",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "B",
     "Enabled": true
@@ -66,7 +66,7 @@
   {
     "Id": 9,
     "Image": "A",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "A",
     "Enabled": true
@@ -74,7 +74,7 @@
   {
     "Id": 10,
     "Image": "A",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "B",
     "Enabled": true
@@ -82,7 +82,7 @@
   {
     "Id": 11,
     "Image": "A",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "A",
     "Enabled": true
@@ -90,105 +90,105 @@
   {
     "Id": 12,
     "Image": "A",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 13,
     "Image": "B",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 14,
     "Image": "B",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 15,
     "Image": "B",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 16,
     "Image": "B",
-    "Layout": "A",
+    "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 17,
     "Image": "B",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 18,
     "Image": "B",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 19,
     "Image": "B",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 20,
     "Image": "B",
-    "Layout": "B",
+    "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 21,
     "Image": "B",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 22,
     "Image": "B",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 23,
     "Image": "B",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "A",
-    "Enabled": true,
+    "Enabled": true
   },
   {
     "Id": 24,
     "Image": "B",
-    "Layout": "C",
+    "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "B",
-    "Enabled": true,
+    "Enabled": true
   }
 ]
