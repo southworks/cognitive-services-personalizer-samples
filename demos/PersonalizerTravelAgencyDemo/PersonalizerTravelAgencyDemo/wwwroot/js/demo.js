@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const graphContainer = document.getElementById('graph-container');
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
-
+    const showActionJsonBtn = document.getElementById("showActionsJson");
     let currentSize;
     const SCREEN_SIZE_SMALL = 0;
     const SCREEN_SIZE_BIG = 1;
