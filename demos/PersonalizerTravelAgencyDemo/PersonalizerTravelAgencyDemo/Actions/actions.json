@@ -4,7 +4,7 @@
     "Image": "A",
     "Layout": "A",
     "ToneFont": "casual",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true
   },
   {
@@ -12,7 +12,7 @@
     "Image": "A",
     "Layout": "A",
     "ToneFont": "casual",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true
   },
   {
@@ -20,7 +20,7 @@
     "Image": "A",
     "Layout": "A",
     "ToneFont": "formal",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true
   },
   {
@@ -28,7 +28,7 @@
     "Image": "A",
     "Layout": "A",
     "ToneFont": "formal",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true
   },
   {
@@ -36,7 +36,7 @@
     "Image": "A",
     "Layout": "B",
     "ToneFont": "casual",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true
   },
   {
@@ -44,7 +44,7 @@
     "Image": "A",
     "Layout": "B",
     "ToneFont": "casual",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true
   },
   {
@@ -52,7 +52,7 @@
     "Image": "A",
     "Layout": "B",
     "ToneFont": "formal",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true
   },
   {
@@ -60,7 +60,7 @@
     "Image": "A",
     "Layout": "B",
     "ToneFont": "formal",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true
   },
   {
@@ -68,7 +68,7 @@
     "Image": "A",
     "Layout": "C",
     "ToneFont": "casual",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true
   },
   {
@@ -76,7 +76,7 @@
     "Image": "A",
     "Layout": "C",
     "ToneFont": "casual",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true
   },
   {
@@ -84,7 +84,7 @@
     "Image": "A",
     "Layout": "C",
     "ToneFont": "formal",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true
   },
   {
@@ -92,7 +92,7 @@
     "Image": "A",
     "Layout": "C",
     "ToneFont": "formal",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true,
   },
   {
@@ -100,7 +100,7 @@
     "Image": "B",
     "Layout": "A",
     "ToneFont": "casual",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true,
   },
   {
@@ -108,7 +108,7 @@
     "Image": "B",
     "Layout": "A",
     "ToneFont": "casual",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true,
   },
   {
@@ -116,7 +116,7 @@
     "Image": "B",
     "Layout": "A",
     "ToneFont": "formal",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true,
   },
   {
@@ -124,7 +124,7 @@
     "Image": "B",
     "Layout": "A",
     "ToneFont": "formal",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true,
   },
   {
@@ -132,7 +132,7 @@
     "Image": "B",
     "Layout": "B",
     "ToneFont": "casual",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true,
   },
   {
@@ -140,7 +140,7 @@
     "Image": "B",
     "Layout": "B",
     "ToneFont": "casual",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true,
   },
   {
@@ -148,7 +148,7 @@
     "Image": "B",
     "Layout": "B",
     "ToneFont": "formal",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true,
   },
   {
@@ -156,7 +156,7 @@
     "Image": "B",
     "Layout": "B",
     "ToneFont": "formal",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true,
   },
   {
@@ -164,7 +164,7 @@
     "Image": "B",
     "Layout": "C",
     "ToneFont": "casual",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true,
   },
   {
@@ -172,7 +172,7 @@
     "Image": "B",
     "Layout": "C",
     "ToneFont": "casual",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true,
   },
   {
@@ -180,7 +180,7 @@
     "Image": "B",
     "Layout": "C",
     "ToneFont": "formal",
-    "ButtonColor": "A",
+    "ButtonColor": "#F57636",
     "Enabled": true,
   },
   {
@@ -188,7 +188,7 @@
     "Image": "B",
     "Layout": "C",
     "ToneFont": "formal",
-    "ButtonColor": "B",
+    "ButtonColor": "#0078D4",
     "Enabled": true,
   }
 ]
