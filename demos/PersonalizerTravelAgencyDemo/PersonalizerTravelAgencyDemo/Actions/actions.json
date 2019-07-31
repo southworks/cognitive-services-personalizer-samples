@@ -1,7 +1,10 @@
 [
   {
     "Id": 1,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName":  "Desert"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -9,7 +12,10 @@
   },
   {
     "Id": 2,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -17,7 +23,10 @@
   },
   {
     "Id": 3,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -25,7 +34,10 @@
   },
   {
     "Id": 4,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "B",
@@ -33,7 +45,10 @@
   },
   {
     "Id": 5,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -41,7 +56,10 @@
   },
   {
     "Id": 6,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -49,7 +67,10 @@
   },
   {
     "Id": 7,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -57,7 +78,10 @@
   },
   {
     "Id": 8,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "B",
@@ -65,7 +89,10 @@
   },
   {
     "Id": 9,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -73,7 +100,10 @@
   },
   {
     "Id": 10,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -81,7 +111,10 @@
   },
   {
     "Id": 11,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -89,7 +122,10 @@
   },
   {
     "Id": 12,
-    "Image": "A",
+    "Image": {
+      "FileName": "elephant",
+      "AltName": "Desert"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "B",
@@ -97,7 +133,10 @@
   },
   {
     "Id": 13,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -105,7 +144,10 @@
   },
   {
     "Id": 14,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -113,7 +155,10 @@
   },
   {
     "Id": 15,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -121,7 +166,10 @@
   },
   {
     "Id": 16,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutA",
     "ToneFont": "formal",
     "ButtonColor": "B",
@@ -129,7 +177,10 @@
   },
   {
     "Id": 17,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -137,7 +188,10 @@
   },
   {
     "Id": 18,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -145,7 +199,10 @@
   },
   {
     "Id": 19,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -153,7 +210,10 @@
   },
   {
     "Id": 20,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutB",
     "ToneFont": "formal",
     "ButtonColor": "B",
@@ -161,7 +221,10 @@
   },
   {
     "Id": 21,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "A",
@@ -169,7 +232,10 @@
   },
   {
     "Id": 22,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "casual",
     "ButtonColor": "B",
@@ -177,7 +243,10 @@
   },
   {
     "Id": 23,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "A",
@@ -185,7 +254,10 @@
   },
   {
     "Id": 24,
-    "Image": "B",
+    "Image": {
+      "FileName": "caribbean-placeholder",
+      "AltName": "Caribbean"
+    },
     "Layout": "_LayoutC",
     "ToneFont": "formal",
     "ButtonColor": "B",
