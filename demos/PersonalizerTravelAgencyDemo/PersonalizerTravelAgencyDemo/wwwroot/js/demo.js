@@ -81,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     goBtnEle.addEventListener("click", function () {
+        resetRewardGauge(gaugeInterval);
         getRecommendation().then(result => {
             personalizerCallResult = result;
             updateBasedOnRecommendation(result);
@@ -179,8 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.addEventListener("click", function () {
                     gaugeContainerEle.style.display = 'none';
                     articleViewer.contentWindow.history.back();
-                    clearInterval(gaugeInterval);
-                    gaugeInterval = -1;
+                    resetRewardGauge(gaugeInterval);
                 });
             }
 
@@ -198,6 +198,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+function resetRewardGauge(gaugeInterval){
+    clearInterval(gaugeInterval);
+    gaugeInterval = -1;
+}
 
 function updateRewardValue(value, articleDoc) {
     const turnValue = value/2;
