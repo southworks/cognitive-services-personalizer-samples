@@ -140,6 +140,9 @@ document.addEventListener("DOMContentLoaded", function () {
             sendReward(personalizerCallResult.eventId, reward);
         }
 
+        clearInterval(gaugeInterval);
+        gaugeInterval = -1;
+
         boundSetIframeContentSize(backstage.classList.contains('show'));
 
         backstageBtn.addEventListener('click', function () {
@@ -179,8 +182,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 iframeBackBtn.addEventListener("click", function () {
                     gaugeContainerEle.style.display = 'none';
                     articleViewer.contentWindow.history.back();
-                    clearInterval(gaugeInterval);
-                    gaugeInterval = -1;
                 });
             }
 
@@ -188,8 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (iframeBackBtn !== undefined) {
                     gaugeContainerEle.style.display = 'none';
                 }
-                clearInterval(gaugeInterval);
-                gaugeInterval = -1;
                 articleViewer.contentWindow.history.back();
             });
         }
