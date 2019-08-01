@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace PersonalizerTravelAgencyDemo.Repositories
 {
-    public interface IActionsRepository
+    public interface IRankableActionRepository
     {
-        IList<RankableAction> GetActions(bool useTextAnalytics);
+        IList<RankableAction> GetActions();
 
-        IList<RankableActionWithMetadata> GetActionsWithMetadata(bool useTextAnalytics);
+        IList<RankableActionWithMetadata> GetActionsWithMetadata();
     }
 }

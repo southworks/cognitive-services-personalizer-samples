@@ -1,5 +1,13 @@
+let context = {
+    device: "mobile",
+    packageAdditionals: null,
+    costs: null,
+    userAgent: null
+};
+
+let userAgent = {};
+
 document.addEventListener("DOMContentLoaded", function () {
-    const timeleftContainer = document.getElementById("timeleft-container");
     const goBtnEle = document.getElementById("go-btn");
     const brandLogoImg = document.getElementById("brand-logo");
     const mobileShowBackstageBtn = document.getElementById("mobile-show-backstage-btn");
@@ -10,12 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const backstage = document.getElementById('collapseBackstage');
     const backstageBtn = document.getElementById("backstage-btn");
     const showActionJsonBtn = document.getElementById("showActionsJson");
+
+    const costsOptions = ["allInclusive", "luxury"];
+    const additionalOptions = ["boatTrip", "dinnerBreakfast"];
+
     let currentSize;
+    let gaugeInterval = -1;
     const SCREEN_SIZE_SMALL = 0;
     const SCREEN_SIZE_BIG = 1;
     const mobileSize = 991;
-    let intervalId = -1;
-    let reward = 0;
+
+    context.costs = getRandomOption(costsOptions);
+    context.packageAdditionals = getRandomOption(additionalOptions);
 
     backstageBtn.addEventListener("click", function () {
         backstageBtn.innerText = backstage.classList.contains('show') ? MainArticleShowBackstageLabel : MainArticleCloseBackstageLabel;
@@ -117,7 +131,15 @@ document.addEventListener("DOMContentLoaded", function () {
         const articleDoc = articleViewer.contentDocument;
         const mainContainer = articleViewer.contentWindow.document.getElementById("main-container");
         const articleFooter = articleViewer.contentWindow.document.getElementById("article-footer");
+        const gauge = articleViewer.contentWindow.document.getElementById("gauge");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
+
+        let reward = RewardInitValue;
+
+        function sendRewardHandler(reward) {
+            clearInterval(gaugeInterval);
+            sendReward(personalizerCallResult.eventId, reward);
+        }
 
         boundSetIframeContentSize(backstage.classList.contains('show'));
 
@@ -125,48 +147,29 @@ document.addEventListener("DOMContentLoaded", function () {
             boundSetIframeContentSize(!backstage.classList.contains('show'));
         });
 
-        if (articleViewer.contentWindow.location.href.indexOf("rticle/") > -1) {
+        if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
+
+            articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(reward); });
+            articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(SaveForLaterReward); });
 
             updateShowGraphbtn(true);
-            if (intervalId >= 0) {
-                clearInterval(intervalId);
-                intervalId = -1;
-            }
-
-            let counter = 20;
-            reward = 0;
+            
             updateRewardValue(reward, articleDoc);
-            clearRewardmessage();
 
-            intervalId = setInterval(function () {
-                counter--;
-                timeleftContainer.innerHTML = `<p class="col-12 px-4 py-2 m-0" style="font-size: 1.4rem;">
-                        <i class="fas fa-hourglass-half"></i> ${counter}s left to get reward
-                    </p>`;
-                if (counter <= 0) {
-                    clearInterval(intervalId);
-                    intervalId = -1;
-                    sendReward(personalizerCallResult.eventId, reward).then(() => {
-                        showRewardMessage(reward);
-                    });
-                    timeleftContainer.innerHTML = '';
-                }
-            }, 1000);
+            gauge.addEventListener("transitionend", function gaugeTransitionEndHandler(event) {
+                gauge.removeEventListener("transitionend", gaugeTransitionEndHandler);
+                gaugeInterval = setInterval(function () {
+                    reward -= RewardDecreaseAmount;
+                    if (reward <= RewardDecreaseLimit) {
+                        clearInterval(gaugeInterval);
+                        gaugeInterval = -1;
+                        updateRewardValue(RewardDecreaseLimit, articleDoc);
+                    } else {
+                        updateRewardValue(reward, articleDoc);
+                    }
 
-
-            const maxScrollFooter = Math.max(articleFooter.clientHeight, articleFooter.scrollHeight, articleFooter.offsetHeight);
-            const maxScrollArticle = Math.max(articleDoc.body.scrollHeight, articleDoc.body.offsetHeight,
-                articleDoc.documentElement.clientHeight, articleDoc.documentElement.scrollHeight, articleDoc.documentElement.offsetHeight);
-            const maxScrollPosition = maxScrollArticle - articleViewer.contentWindow.innerHeight - maxScrollFooter;
-
-            articleDoc.addEventListener("scroll", function () {
-                const currentPosition = articleViewer.contentWindow.pageYOffset;
-                const newReward = Math.min(1, parseFloat((currentPosition / maxScrollPosition).toFixed(2)));
-                if (intervalId >= 0 && reward < newReward) {
-                    reward = newReward;
-                    updateRewardValue(reward, articleDoc);
-                }
-            });
+                }, RewardDecreaseInterval * 1000);
+            }, false);            
 
             var innerDoc = articleViewer.contentWindow.document;
             var iframeBackBtn = innerDoc.getElementById('iframe-backBtn');
@@ -175,40 +178,19 @@ document.addEventListener("DOMContentLoaded", function () {
             if (iframeBackBtn !== undefined) {
                 iframeBackBtn.style.display = "block";
                 iframeBackBtn.addEventListener("click", function () {
-                    clearInterval(intervalId);
-                    intervalId = -1;
-                    timeleftContainer.innerHTML = '';
-
-                    if (counter > 0) {
-                        sendReward(personalizerCallResult.eventId, reward).then(() => {
-                            showRewardMessage(reward);
-                        });
-                    }
-
                     gaugeContainerEle.style.display = 'none';
-                    updateRewardValue(0, articleDoc);
-                    clearRewardmessage();
-                    counter = 0;
                     articleViewer.contentWindow.history.back();
+                    clearInterval(gaugeInterval);
+                    gaugeInterval = -1;
                 });
             }
 
             brandLogoImg.addEventListener("click", function () {
                 if (iframeBackBtn !== undefined) {
-                    clearInterval(intervalId);
-                    intervalId = -1;
-                    if (counter > 0) {
-                        sendReward(personalizerCallResult.eventId, reward).then(() => {
-                            showRewardMessage(reward);
-                        });
-                    }
-                    timeleftContainer.innerHTML = '';
                     gaugeContainerEle.style.display = 'none';
-                    updateRewardValue(0, articleDoc);
-                    clearRewardmessage();
-                    counter = 0;
                 }
-
+                clearInterval(gaugeInterval);
+                gaugeInterval = -1;
                 articleViewer.contentWindow.history.back();
             });
         }
@@ -218,45 +200,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-let context = {
-    referrer: "social",
-    tournament: "wimbledon",
-    device: "mobile",
-    userAgent: null,
-    useTextAnalytics: false
-};
-
-let userAgent = {};
-
 function updateRewardValue(value, articleDoc) {
-    const percentageValue = Math.round(value * 100);
-    const turnValue = Math.round(percentageValue * 5 / 100);
+    const turnValue = value/2;
     const rewardEle = articleDoc.getElementById('gauge');
-    rewardEle.setAttribute('style', `transform:rotate(.${turnValue}turn)`);
+    rewardEle.setAttribute('style', `transform:rotate(${turnValue}turn)`);
     const comment = articleDoc.getElementById('gauge-comment');
     comment.innerText = `${value.toFixed(1)}`;
 }
 
-function showRewardMessage(reward) {
-    const alertContainerEle = document.getElementById('alert-container');
-    alertContainerEle.innerHTML = `<div class="alert alert-success col-12" role="alert">
-        Reward of <strong>${reward}</strong> was sent to Personalizer
-    </div>`;
-}
-
-function clearRewardmessage() {
-    const alertContainerEle = document.getElementById('alert-container');
-    cleanChilds(alertContainerEle);
-}
-
 function setupActionControls() {
-    const useTextAnalyticsEle = document.getElementById('text-analytics');
-    useTextAnalyticsEle.addEventListener('change', (event) => {
-        const checkbox = event.target;
-        context.useTextAnalytics = !!checkbox.checked;
-        getActions(context.useTextAnalytics).then(updateActionsTab);
-    });
-
     getActions(false).then(updateActionsTab);
 }
 
@@ -276,7 +228,7 @@ function setupContextControls() {
     const deviceSelectEle = document.getElementById('device');
     deviceSelectEle.selectedIndex = ramdomizeSelectedOption(deviceSelectEle);
     deviceSelectEle.addEventListener('change', (event) => {
-        updateContext(null, null, event.target.value);
+        updateContext(event.target.value, null, null, false, null);
     });
 
     const UseUserAgentEle = document.getElementById('use-useragent');
@@ -285,30 +237,30 @@ function setupContextControls() {
         if (checkbox.checked) {
             updateContext(null, null, null, false, userAgent);
         } else {
-            updateContext(null, null, null, true);
+            updateContext(null, null, null, true, null);
         }
     });
 
     getUserAgent().then(userAgentResponse => {
         userAgent = userAgentResponse;
-        updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value, !UseUserAgentEle.checked, userAgent);
+        updateContext(deviceSelectEle.value, null, null, !UseUserAgentEle.checked, userAgent);
     });
 
-    updateContext(referrerSelectEle.value, currentTournamentSelectEle.value, deviceSelectEle.value);
+    updateContext(deviceSelectEle.value, null, null, false, null);
 }
 
-function updateContext(referrer, currentTournament, device, removeUserAgent, userAgent) {
-    context.referrer = referrer || context.referrer;
-    context.tournament = currentTournament || context.tournament;
+function updateContext(device, currentCost, currentAdditionals, removeUserAgent, userAgent) {
     context.device = device || context.device;
+    context.costs = currentCost || context.costs;
+    context.packageAdditionals = currentAdditionals || context.packageAdditionals;
     context.userAgent = removeUserAgent ? null : userAgent || context.userAgent;
 
     let contextFeatures = [
         {
-            referrer: context.referrer,
-            tournament: context.tournament
-        },
-        { device: context.device }
+            device: context.device,
+            costs: context.costs,
+            additionals: context.packageAdditionals
+        }
     ];
 
 
@@ -434,23 +386,19 @@ function createActionTab(actionObj, active) {
 }
 
 function updateArticle(result) {
-    let articleIds = result.ranking.map(function (ranking) {
-        return ranking.id;
-    }).join(",");
     const articleViewer = document.getElementById("article-viewer");
-    articleViewer.src = `/home/homesite?articleIds=${articleIds}`;
+    articleViewer.src = `/home/Confirmation?actionId=${result.rewardActionId}`;
 }
 
-function getActions(useTextAnalytics) {
-    return fetch(`/api/Metadata/Actions?useTextAnalytics=${useTextAnalytics}`).then(r => r.json());
+function getActions() {
+    return fetch(`/api/Metadata/Actions`).then(r => r.json());
 }
 
 function getRecommendation() {
     const requestContext = {
-        referrer: context.referrer,
-        tournament: context.tournament,
         device: context.device,
-        useTextAnalytics: context.useTextAnalytics,
+        costs: context.costs,
+        additionals: context.packageAdditionals,
         useUserAgent: !!context.userAgent
     };
 
@@ -491,4 +439,10 @@ function updateShowGraphbtn(shouldShow) {
 
     document.getElementById("learn-button").classList.replace(previousClass, actualClass);
     document.getElementById("mobile-learn-button").classList.replace(previousClass, actualClass);
+}
+
+function getRandomOption(options) {
+    var randomNumber = Math.floor(Math.random() * options.length);
+
+    return options[randomNumber];
 }

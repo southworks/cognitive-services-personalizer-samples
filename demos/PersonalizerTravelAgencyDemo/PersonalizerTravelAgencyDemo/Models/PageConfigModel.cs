@@ -2,7 +2,7 @@ namespace PersonalizerTravelAgencyDemo.Models
 {
     public class PageConfigModel
     {
-        public string RefreshButtonText { get; set; }
+        public string CheckoutButtonText { get; set; }
 
         public string PersonalizerSignUpURL { get; set; }
 
@@ -28,6 +28,16 @@ namespace PersonalizerTravelAgencyDemo.Models
         public string MainArticleCloseBackstageLabel { get; set; }
 
         public string StartWithBlankPage { get; set; }
+        public RewardTimerModel RewardTimer { get; set; }
+
+        public string BlueButton { get; set; }
+
+        public string OrangeButton { get; set; }
+
+        public string ConfirmationLabelBlueButton { get; set; }
+
+        public string ConfirmationLabelOrangeButton { get; set; }
+
     }
 }
 

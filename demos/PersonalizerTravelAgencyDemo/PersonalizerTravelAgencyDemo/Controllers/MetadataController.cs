@@ -7,17 +7,17 @@ namespace PersonalizerTravelAgencyDemo.Controllers
     [Route("api/[controller]")]
     public class MetadataController : Controller
     {
-        private readonly IActionsRepository _actionsRepository;
+        private readonly IRankableActionRepository _actionsRepository;
 
-        public MetadataController(IActionsRepository actionsRepository)
+        public MetadataController(IRankableActionRepository actionsRepository)
         {
             _actionsRepository = actionsRepository;
         }
 
         [HttpGet("Actions")]
-        public JsonResult Actions(bool useTextAnalytics)
+        public JsonResult Actions()
         {
-            return new JsonResult(_actionsRepository.GetActionsWithMetadata(useTextAnalytics));
+            return new JsonResult(_actionsRepository.GetActionsWithMetadata());
         }
 
         [HttpGet("UserAgent")]

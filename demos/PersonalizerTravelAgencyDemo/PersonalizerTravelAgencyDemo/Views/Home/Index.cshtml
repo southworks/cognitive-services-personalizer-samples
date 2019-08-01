@@ -94,7 +94,7 @@
     <div class="col p-0" id="webpage-container">
 
         <nav class="navbar navbar-expand-md navbar-dark px-5 articleNavBar" id="navbar-container" style="background-color: @siteConfig.NavigationBar.BackgroundColor">
-            <a class="navbar-brand " id="brand-logo" href="#"><img src="~/@navigationBarOptions.LogoImageURL" class="brand-logo" /></a>
+            <a class="navbar-brand " id="brand-logo" href="#"><i class="fas fa-umbrella-beach fa-2x"></i></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent1">
                 @displayMenuItems(navigationBarOptions.OptionsList as List<NavBarItemModel>)
 
@@ -153,7 +153,7 @@
                             </div>
                             <div>
                                 <button type="button" class="btn btn-primary mt-4 mt-md-3" id="go-btn">
-                                    @siteConfig.RefreshButtonText
+                                    @siteConfig.BackstageSection.RefreshButtonText
                                 </button>
                             </div>
                         </form>
@@ -314,25 +314,19 @@
 
             </div>
 
-            <hr />
-
-            <div class="row" id="alert-container"></div>
-            <div class="row" id="timeleft-container"></div>
-
-            <hr />
-
-            <div class="row">
-                <div class="col-md-12">
-                    <a href=@siteConfig.PersonalizerSignUpURL target="_blank">@siteConfig.PersonalizerSignUpLabel</a> to try Personalizer
-                </div>
-                <div class="col-md-12">
-                    <a href=@siteConfig.PersonalizerDocumentationURL target="_blank">@siteConfig.PersonalizerDocumentationLabel</a> about Personalizer
-                </div>
-                <div class="col-md-12">
-                    See Personalizer <a href=@siteConfig.PersonalizerDeveloperDocsURL target="_blank">@siteConfig.PersonalizerDeveloperDocsLabel</a>
-                </div>
-                <div class="col-md-12 pb-4">
-                    Get Personalizer <a href=@siteConfig.PersonalizerCodeSamplesURL target="_blank">@siteConfig.PersonalizerCodeSampleLabel</a>
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href=@siteConfig.PersonalizerSignUpURL target="_blank">@siteConfig.PersonalizerSignUpLabel</a> to try Personalizer
+                    </div>
+                    <div class="col-md-12">
+                        <a href=@siteConfig.PersonalizerDocumentationURL target="_blank">@siteConfig.PersonalizerDocumentationLabel</a> about Personalizer
+                    </div>
+                    <div class="col-md-12">
+                        See Personalizer <a href=@siteConfig.PersonalizerDeveloperDocsURL target="_blank">@siteConfig.PersonalizerDeveloperDocsLabel</a>
+                    </div>
+                    <div class="col-md-12 pb-4">
+                        Get Personalizer <a href=@siteConfig.PersonalizerCodeSamplesURL target="_blank">@siteConfig.PersonalizerCodeSampleLabel</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -398,9 +392,18 @@
 
 @section Scripts {
     <script src="~/lib/chartjs/Chart.bundle.js"></script>
-    <script> const startDemoWithBlankPage = @siteConfig.StartWithBlankPage; </script>
-    <script>const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';</script>
-    <script>const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';</script>
+    <script> 
+        const startDemoWithBlankPage = @siteConfig.StartWithBlankPage;
+        const MainArticleShowBackstageLabel = '@siteConfig.MainArticleShowBackstageLabel';
+        const MainArticleCloseBackstageLabel = '@siteConfig.MainArticleCloseBackstageLabel';
+        //Reward Gauge Values
+        const RewardDecreaseAmount = @siteConfig.RewardTimer.DecreaseAmount; 
+        const RewardDecreaseInterval = @siteConfig.RewardTimer.DecreaseInterval;
+        const RewardDecreaseLimit = @siteConfig.RewardTimer.DecreaseLimit; 
+        const RewardInitValue = @siteConfig.RewardTimer.InitValue;
+        const SaveForLaterReward = @siteConfig.RewardTimer.SaveForLaterReward;
+    </script>
+
     <script src="~/js/demo.js" asp-append-version="true"></script>
     <script src="~/js/learn-charts.js" asp-append-version="true"></script>
 }
