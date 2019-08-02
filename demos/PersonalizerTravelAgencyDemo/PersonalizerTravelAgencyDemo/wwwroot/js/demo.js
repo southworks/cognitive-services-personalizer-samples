@@ -80,13 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
     setupActionControls();
     setupContextControls();
 
-    if (!startDemoWithBlankPage) {
-        getRecommendation().then(result => {
-            personalizerCallResult = result;
-            updateBasedOnRecommendation(result);
-        });
-    }
-
     if (document.documentElement.clientWidth > mobileSize) {
         currentSize = SCREEN_SIZE_BIG;
     }
@@ -158,6 +151,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const gauge = articleViewer.contentWindow.document.getElementById("gauge");
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
 
+        getRecommendation().then(result => {
+            personalizerCallResult = result;
+        });
+
         let reward = RewardInitValue;
 
         function sendRewardHandler(reward) {
@@ -179,7 +176,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (articleViewer.contentWindow.location.href.indexOf("onfirmation") > -1) {
 
             articleDoc.getElementById("btn-confirm").addEventListener("click", function () { sendRewardHandler(reward); });
-            articleDoc.getElementById("link-save-later").addEventListener("click", function () { sendRewardHandler(SaveForLaterReward); });
+            articleDoc.getElementById("link-save-later").addEventListener("click", function () {
+                sendRewardHandler(SaveForLaterReward);
+                updateRewardValue(SaveForLaterReward, articleDoc);
+            });
 
             updateShowGraphbtn(true);
 
@@ -398,8 +398,7 @@ function createActionTab(actionObj, active) {
 
     return {
         tabHeader: `<a class="nav-link d-flex align-items-center${active ? " active" : ""}" id="${actionObj.id}-article-tab" data-toggle="pill" onclick="showAction(${actionObj.id})" href="#${actionObj.id}-article" role="tab" aria-controls="${actionObj.id}-article" aria-selected="${active ? "true" : "false"}">
-                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/actions-thumbnails/${actionObj.id}.png" style="max-width:4rem;"></img>
-                        <div class="actionItemsStyleLabel">Tone & Font: ${action.toneFont}</div>
+                        <img class="rounded img-fluid" alt="Preview thumbnail for ${actionObj.id}" src="img/actions-thumbnails/${actionObj.id}.png"></img>
                     </a>`,
         tabContent: `<div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.JSON ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.JSON}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                         <pre class="pre-scrollable border m-0 actions-height"><code>${JSON.stringify(actionObj, null, 2)}</code></pre>
@@ -407,9 +406,9 @@ function createActionTab(actionObj, active) {
                     <div class="tab-pane fade ${active && actionDisplayState.selectedView === ACTION_VIEWS.HTML ? "show active" : ""}" role="tabpanel" id="${actionObj.id}-article-${ACTION_VIEWS.HTML}" role="tabpanel" aria-labelledby="${actionObj.id}-article-tab">
                        <div class="m-1 actions-grid">
                           <div class="gr-1 gc-1">Layout</div>
-                          <div class="gr-2 gc-1"><img class="${action.layout.toLowerCase().indexOf('layouta') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-a" src="/img/layout-a.jpg" alt="Layout A" /></div>
-                          <div class="gr-3 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutb') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-b" src="/img/layout-b.jpg" alt="Layout B" /></div>
-                          <div class="gr-4 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutc') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-c" src="/img/layout-c.jpg" alt="Layout C" /></div>
+                          <div class="gr-2 gc-1"><img class="${action.layout.toLowerCase().indexOf('layouta') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-a" src="/img/layout-a.png" alt="Layout A" /></div>
+                          <div class="gr-3 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutb') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-b" src="/img/layout-b.png" alt="Layout B" /></div>
+                          <div class="gr-4 gc-1"><img class="${action.layout.toLowerCase().indexOf('layoutc') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="layout-c" src="/img/layout-c.png" alt="Layout C" /></div>
                           
                           <div class="gr-1 gc-2">Image</div>
                           <div class="gr-2 gc-2"><img class="${action.image.fileName.toLowerCase().indexOf('caribbean') > -1 ? 'action-border border-primary rounded' : 'action-border border-white rounded'}" id="beach" src="/img/caribbean-thumbnail.jpg" alt="Beach" /></div>
