@@ -151,15 +151,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const boundSetIframeContentSize = setIframeContentSize.bind(null, mainContainer);
         const modalButton = articleViewer.contentWindow.document.getElementById('endModal-close-button');
         const modalIcon = articleViewer.contentWindow.document.getElementById('endModal-close-icon');
-        const checkoutModal = articleViewer.contentWindow.document.getElementById('modal-checkout');
 
-        modalButton.addEventListener('click', function () {
-            goToHomeSite();
-        })
+        modalButton.addEventListener('click', goToHomeSite);
 
-        modalIcon.addEventListener('click', function () {
-            goToHomeSite();
-        })
+        modalIcon.addEventListener('click', goToHomeSite);
 
         getRecommendation().then(result => {
             personalizerCallResult = result;
