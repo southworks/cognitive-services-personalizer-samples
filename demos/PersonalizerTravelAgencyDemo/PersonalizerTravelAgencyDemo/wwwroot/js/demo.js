@@ -152,10 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const modalButton = articleViewer.contentWindow.document.getElementById('endModal-close-button');
         const modalIcon = articleViewer.contentWindow.document.getElementById('endModal-close-icon');
 
-        modalButton.addEventListener('click', goToHomeSite);
-
-        modalIcon.addEventListener('click', goToHomeSite);
-
         getRecommendation().then(result => {
             personalizerCallResult = result;
         });
@@ -185,6 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 sendRewardHandler(SaveForLaterReward);
                 updateRewardValue(SaveForLaterReward, articleDoc);
             });
+
+            modalButton.addEventListener('click', goToHomeSite);
+
+            modalIcon.addEventListener('click', goToHomeSite);
 
             updateShowGraphbtn(true);
 
