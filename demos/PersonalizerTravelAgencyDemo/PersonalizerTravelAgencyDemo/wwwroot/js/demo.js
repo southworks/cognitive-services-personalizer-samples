@@ -161,11 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
             goToHomeSite();
         })
 
-        checkoutModal.addEventListener('blur', function () {
-            goToHomeSite();
-        })
-
-
         getRecommendation().then(result => {
             personalizerCallResult = result;
         });
