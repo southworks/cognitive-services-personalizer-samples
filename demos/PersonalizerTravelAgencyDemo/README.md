@@ -64,3 +64,7 @@ Once you configure the secrets and the endpoints, in Visual Studio you can run t
 Once you managed to run the demo locally you can right-click on the Visual Studio project and select the **Publish** menu option to deploy the demo to a new or and existing Azure AppService, also, you can pick from one of the given options.
 
 ![Selecting the Publish option in Vs](./imgs/vs-publishproject.png)
+
+The different options from the publish menu will guide you to the publishing proccess. You can also choose to import a publishing profile from Azure.
+
+![Publish process in Vs](./imgs/vs-publishprocess.png)
