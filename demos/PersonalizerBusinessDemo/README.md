@@ -85,7 +85,7 @@ The different options from the publish menu will guide you to the publishing pro
 
 ![Publish process in VS](./imgs/vs-publishprocess.png)
 
-After a successful publish, the final step is setting up the Personalizer API key. From the screen that opened up after deployment, click on **Edit Azure App Service settings**.
+After a successful publish, the final step is setting up the Personalizer and Text Analytics keys. From the screen that opened up after deployment, click on **Edit Azure App Service settings**.
 
 ![Selecting the Edit Azure App Service settings option in VS](./imgs/vs-postpublish-screen.png)
 
