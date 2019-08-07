@@ -61,10 +61,22 @@ Once you configure the secrets and the endpoints, in Visual Studio you can run t
 
 ## Deploying the demo
 
-Once you managed to run the demo locally you can right-click on the Visual Studio project and select the **Publish** menu option to deploy the demo to a new or and existing Azure AppService, also, you can pick from one of the given options.
+Once you managed to run the demo locally, you can right-click on the Visual Studio project and select the **Publish** menu option to deploy the demo to a new or and existing Azure App Service. You can also pick from one of the given options.
 
-![Selecting the Publish option in Vs](./imgs/vs-publishproject.png)
+![Selecting the Publish option in VS](./imgs/vs-publishproject.png)
 
 The different options from the publish menu will guide you to the publishing proccess. You can also choose to import a publishing profile from Azure.
 
-![Publish process in Vs](./imgs/vs-publishprocess.png)
+![Publish process in VS](./imgs/vs-publishprocess.png)
+
+After a successful publish, the final step is setting up the Personalizer API key. From the screen that opened up after deployment, click on **Edit Azure App Service settings**.
+
+![Selecting the Edit Azure App Service settings option in VS](./imgs/vs-postpublish-screen.png)
+
+Then, click on **Add** to create a new key-value pair.
+
+![Adding a new App Service setting in VS](./imgs/vs-add-appsetting.png)
+
+On the new key-value pair, set the name to `PersonalizationApiKey` and your Personalizer API key as the value. Finally, click **OK** to save the changes and you should have a fully functional deployment.
+
+![Configuring the Personalizer API key in VS](./imgs/vs-add-appsetting-personalizer.png)
